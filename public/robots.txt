@@ -1,0 +1,5 @@
+# Lavage Lux Marrakech — https://lavageluxemarrakech.com
+User-agent: *
+Allow: /
+
+Sitemap: https://lavageluxemarrakech.com/sitemap.xml
