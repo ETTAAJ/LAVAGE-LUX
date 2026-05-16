@@ -534,6 +534,7 @@
       min-height: 0;
     }
   </style>
+  <link rel="stylesheet" href="booking.css">
 </head>
 <body class="bg-background text-texte font-body antialiased overflow-x-hidden pb-[4.5rem] sm:pb-0">
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-background/90 backdrop-blur-xl">
@@ -555,10 +556,8 @@
         </span>
       </a>
       <a
-        href="https://wa.me/212702430945?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20service%20premium%20%C3%A0%20domicile%20%C3%A0%20Marrakech."
+        href="#reservation"
         class="absolute right-3 top-1/2 hidden -translate-y-1/2 shrink-0 rounded-full border border-or/50 bg-or/10 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-or transition hover:bg-or hover:text-black sm:right-5 sm:inline-flex sm:items-center sm:justify-center sm:px-4"
-        target="_blank"
-        rel="noopener noreferrer"
       >Réserver maintenant</a>
     </div>
   </header>
@@ -587,15 +586,260 @@
         <p class="mx-auto mt-4 max-w-md text-sm text-white/65 sm:text-base"><strong class="font-semibold text-white/85">Lavage Marrakech</strong> sans station : <strong class="font-semibold text-white/85">lavage voiture</strong> et <strong class="font-semibold text-white/85">nettoyage voiture</strong> à domicile, détailing et polish — équipement pro, eau incluse. Votre <strong class="font-semibold text-white/85">lavage auto Marrakech</strong> chez vous, rendu showroom.</p>
         <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-5">
           <a
-            href="https://wa.me/212702430945?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20service%20premium%20%C3%A0%20domicile."
+            href="#reservation"
             class="cta-reserver inline-flex min-h-[52px] w-full max-w-xs items-center justify-center rounded-full bg-or px-10 py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-black transition hover:bg-yellow-300 sm:w-auto sm:max-w-none sm:text-sm"
-            target="_blank"
-            rel="noopener noreferrer"
           >Réserver maintenant</a>
           <a href="#tarifs" class="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/50 transition hover:text-or">Tarifs</a>
         </div>
       </div>
     </section>
+
+    <section id="reservation" class="booking-section scroll-mt-[4.5rem]" aria-labelledby="reservation-titre">
+      <div class="mx-auto w-full max-w-xl px-3 py-6 sm:px-5 sm:py-9">
+        <div id="bookingWizard" class="booking-wizard">
+          <ol class="booking-progress-segments" id="bookingProgressSegments" aria-hidden="true">
+            <li data-segment="1"></li><li data-segment="2"></li><li data-segment="3"></li><li data-segment="4"></li>
+          </ol>
+          <p class="booking-step-label" id="bookingStepLabel">Étape 1/4 — Service</p>
+
+          <form id="bookingForm" class="booking-wizard__card" novalidate>
+            <fieldset class="booking-step is-active" data-booking-step="1">
+              <legend class="booking-step__legend">
+                <h2 id="reservation-titre" class="booking-step__title">Quel lavage souhaitez-vous ?</h2>
+                <p class="booking-step__subtitle">Choisissez la formule qui vous convient</p>
+              </legend>
+              <div class="booking-options mt-5" role="radiogroup" aria-label="Formule">
+                <label class="booking-pack">
+                  <input type="radio" name="pack" value="Lavage Express" class="sr-only" required>
+                  <span class="booking-pack__inner">
+                    <span class="booking-pack__head">
+                      <span class="booking-pack__emoji" aria-hidden="true">🧽</span>
+                      <span class="booking-pack__title">Lavage Express</span>
+                      <span class="booking-pack__price" data-price-label>dès 149 MAD</span>
+                    </span>
+                    <span class="booking-pack__time">⏱ ~45 min</span>
+                    <ul class="booking-pack__list">
+                      <li>Lavage extérieur complet</li>
+                      <li>Aspirateur rapide</li>
+                      <li>Nettoyage vitres</li>
+                      <li>Parfum d&apos;intérieur</li>
+                    </ul>
+                  </span>
+                </label>
+                <label class="booking-pack booking-pack--featured">
+                  <input type="radio" name="pack" value="Lavage Pro" class="sr-only">
+                  <span class="booking-pack__badge">Populaire</span>
+                  <span class="booking-pack__inner">
+                    <span class="booking-pack__head">
+                      <span class="booking-pack__emoji" aria-hidden="true">✨</span>
+                      <span class="booking-pack__title">Lavage Pro</span>
+                      <span class="booking-pack__price" data-price-label>dès 250 MAD</span>
+                    </span>
+                    <span class="booking-pack__time">⏱ ~1h30</span>
+                    <ul class="booking-pack__list">
+                      <li>Tout Express inclus</li>
+                      <li>Aspiration complète</li>
+                      <li>Finition vitres &amp; jantes</li>
+                      <li>Brillance express</li>
+                    </ul>
+                  </span>
+                </label>
+                <label class="booking-pack">
+                  <input type="radio" name="pack" value="Lavage Pro Plus" class="sr-only">
+                  <span class="booking-pack__inner">
+                    <span class="booking-pack__head">
+                      <span class="booking-pack__emoji" aria-hidden="true">💎</span>
+                      <span class="booking-pack__title">Lavage Pro Plus</span>
+                      <span class="booking-pack__price" data-price-label>dès 650 MAD</span>
+                    </span>
+                    <span class="booking-pack__time">⏱ ~3h</span>
+                    <ul class="booking-pack__list">
+                      <li>Tous les packs précédents</li>
+                      <li>Nettoyage sièges &amp; cuir</li>
+                      <li>Détail showroom</li>
+                    </ul>
+                  </span>
+                </label>
+              </div>
+              <p class="booking-field-error mt-2 hidden" data-error-for="pack">Veuillez choisir une formule</p>
+              <div class="booking-nav">
+                <span></span>
+                <button type="button" class="booking-btn booking-btn--primary" data-booking-next>Continuer</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="booking-step" data-booking-step="2" hidden>
+              <legend class="booking-step__legend">
+                <h2 class="booking-step__title">Quel type de voiture ?</h2>
+                <p class="booking-step__subtitle">Le tarif s&apos;adapte à la taille de votre véhicule</p>
+              </legend>
+              <div class="booking-grid mt-5" role="radiogroup" aria-label="Type de véhicule">
+                <label class="booking-tile">
+                  <input type="radio" name="vehicle" value="citadine" class="sr-only" required>
+                  <span class="booking-tile__emoji">🚗</span>
+                  <span class="booking-tile__title">Citadine</span>
+                  <span class="booking-tile__sub">Clio, i10, Picanto</span>
+                </label>
+                <label class="booking-tile">
+                  <input type="radio" name="vehicle" value="berline" class="sr-only">
+                  <span class="booking-tile__emoji">🚙</span>
+                  <span class="booking-tile__title">Berline</span>
+                  <span class="booking-tile__sub">Logan, Golf, Classe C</span>
+                </label>
+                <label class="booking-tile">
+                  <input type="radio" name="vehicle" value="suv" class="sr-only">
+                  <span class="booking-tile__emoji">🚐</span>
+                  <span class="booking-tile__title">SUV / 4x4</span>
+                  <span class="booking-tile__sub">Duster, Tucson, RAV4</span>
+                </label>
+                <label class="booking-tile">
+                  <input type="radio" name="vehicle" value="suvLuxe" class="sr-only">
+                  <span class="booking-tile__emoji">🛻</span>
+                  <span class="booking-tile__title">SUV 6 places</span>
+                  <span class="booking-tile__sub">Grand SUV, Van compact</span>
+                </label>
+                <label class="booking-tile booking-tile--wide">
+                  <input type="radio" name="vehicle" value="minibus" class="sr-only">
+                  <span class="booking-tile__emoji">🚌</span>
+                  <span class="booking-tile__title">Minibus / Van</span>
+                  <span class="booking-tile__sub">Transport, utilitaire</span>
+                </label>
+              </div>
+              <p class="booking-price-hint mt-4 text-center text-sm" id="bookingPriceHint" hidden></p>
+              <p class="booking-field-error mt-2 hidden" data-error-for="vehicle">Veuillez choisir un type de véhicule</p>
+              <div class="booking-nav">
+                <button type="button" class="booking-btn booking-btn--back" data-booking-prev aria-label="Retour">←</button>
+                <button type="button" class="booking-btn booking-btn--primary" data-booking-next>Continuer</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="booking-step" data-booking-step="3" hidden>
+              <legend class="booking-step__legend">
+                <h2 class="booking-step__title">Lieu &amp; créneau</h2>
+                <p class="booking-step__subtitle">Localisation auto ou quartier, puis créneau (09:00 – 21:00)</p>
+              </legend>
+              <div class="mt-5 space-y-4">
+                <div>
+                  <span class="booking-label">Où intervenons-nous ?</span>
+                  <div class="booking-lieu-mode mt-2" role="radiogroup" aria-label="Mode de localisation">
+                    <label class="booking-lieu-mode__option">
+                      <input type="radio" name="lieuMode" value="geo" class="sr-only" checked>
+                      <span class="booking-lieu-mode__inner">📍 Localisation auto</span>
+                    </label>
+                    <label class="booking-lieu-mode__option">
+                      <input type="radio" name="lieuMode" value="quartier" class="sr-only">
+                      <span class="booking-lieu-mode__inner">🗺️ Choisir un quartier</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div id="bookingGeoPanel" class="booking-lieu-panel">
+                <div class="booking-geo">
+                  <p class="booking-geo__hint">Votre position GPS est détectée automatiquement pour l&apos;intervention.</p>
+                  <p id="bookingGeoStatus" class="booking-geo__status" role="status">Recherche de votre position…</p>
+                  <div id="bookingGeoDisplay" class="booking-geo__display" hidden></div>
+                  <input type="hidden" id="bookingGeoLat" name="geo_lat" value="">
+                  <input type="hidden" id="bookingGeoLng" name="geo_lng" value="">
+                  <input type="hidden" id="bookingGeoAcc" name="geo_accuracy" value="">
+                  <input type="hidden" id="bookingAddress" name="address" value="">
+                  <button type="button" id="bookingGeoRetry" class="booking-geo__retry">Actualiser la position</button>
+                  <p class="booking-field-error mt-2 hidden" data-error-for="geo">Autorisez la localisation ou actualisez la position</p>
+                </div>
+                </div>
+
+                <div id="bookingQuartierPanel" class="booking-lieu-panel" hidden>
+                  <div>
+                    <label class="booking-label" for="bookingQuartier">Quartier à Marrakech</label>
+                    <select id="bookingQuartier" name="quartier" class="booking-input">
+                      <option value="" disabled selected>Choisissez un quartier</option>
+                      <option>Guéliz</option>
+                      <option>Hivernage</option>
+                      <option>Palmeraie</option>
+                      <option>Médina</option>
+                      <option>Agdal</option>
+                      <option>Massira</option>
+                      <option>Autre</option>
+                    </select>
+                    <p class="booking-field-error mt-1 hidden" data-error-for="quartier">Veuillez choisir un quartier</p>
+                  </div>
+                </div>
+                <div>
+                  <label class="booking-label" for="bookingDate">Date d&apos;intervention</label>
+                  <input id="bookingDate" name="date" type="date" required class="booking-input booking-input--date" autocomplete="off">
+                  <p class="booking-field-error mt-1 hidden" data-error-for="date">Veuillez choisir une date</p>
+                </div>
+                <div>
+                  <span class="booking-label">Créneau horaire</span>
+                  <div class="booking-slots mt-2" id="bookingSlots" role="radiogroup" aria-label="Créneau horaire">
+                    <label class="booking-slot"><input type="radio" name="slot" value="09:00" class="sr-only" required><span>09:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="10:00" class="sr-only"><span>10:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="11:00" class="sr-only"><span>11:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="12:00" class="sr-only"><span>12:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="14:00" class="sr-only"><span>14:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="15:00" class="sr-only"><span>15:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="16:00" class="sr-only"><span>16:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="17:00" class="sr-only"><span>17:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="18:00" class="sr-only"><span>18:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="19:00" class="sr-only"><span>19:00</span></label>
+                    <label class="booking-slot"><input type="radio" name="slot" value="20:00" class="sr-only"><span>20:00</span></label>
+                  </div>
+                  <p class="booking-field-error mt-2 hidden" data-error-for="slot">Veuillez choisir un créneau</p>
+                </div>
+              </div>
+              <div class="booking-nav">
+                <button type="button" class="booking-btn booking-btn--back" data-booking-prev aria-label="Retour">←</button>
+                <button type="button" class="booking-btn booking-btn--primary" data-booking-next>Continuer</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="booking-step" data-booking-step="4" hidden>
+              <legend class="booking-step__legend">
+                <h2 class="booking-step__title">Confirmation</h2>
+                <p class="booking-step__subtitle">Coordonnées et récapitulatif</p>
+              </legend>
+              <div class="mt-5 space-y-4">
+                <div>
+                  <label class="booking-label" for="bookingName">Nom complet</label>
+                  <input id="bookingName" name="name" type="text" required autocomplete="name" placeholder="Votre nom" class="booking-input">
+                  <p class="booking-field-error mt-1 hidden" data-error-for="name">Veuillez entrer votre nom</p>
+                </div>
+                <div>
+                  <label class="booking-label" for="bookingPhone">Téléphone</label>
+                  <input id="bookingPhone" name="phone" type="tel" required autocomplete="tel" placeholder="06 12 34 56 78" class="booking-input">
+                  <p class="booking-field-error mt-1 hidden" data-error-for="phone">Entrez un numéro valide</p>
+                </div>
+                <div>
+                  <label class="booking-label" for="bookingNote">Note <span class="booking-label-optional">(optionnel)</span></label>
+                  <textarea id="bookingNote" name="note" rows="2" placeholder="Code portail, instructions d&apos;accès…" class="booking-input"></textarea>
+                </div>
+              </div>
+              <div id="bookingRecap" class="booking-recap mt-4" aria-live="polite"></div>
+              <p class="booking-recap-note text-center">Aucun paiement en ligne · Confirmation WhatsApp</p>
+              <div class="booking-nav">
+                <button type="button" class="booking-btn booking-btn--back" data-booking-prev aria-label="Retour">←</button>
+                <button type="button" class="booking-btn booking-btn--primary booking-btn--confirm" id="bookingConfirm">Confirmer la réservation ✓</button>
+              </div>
+            </fieldset>
+          </form>
+
+          <div id="bookingSuccess" class="booking-wizard__card booking-success" hidden>
+            <p class="booking-success__icon" aria-hidden="true">✅</p>
+            <h2 class="booking-step__title">Réservation confirmée !</h2>
+            <p class="booking-success__text">Merci. Ouvrez WhatsApp pour finaliser avec notre équipe.</p>
+            <a id="bookingSuccessWa" href="#" class="booking-btn booking-btn--primary mt-6 w-full">Parlez-nous sur WhatsApp</a>
+            <button type="button" class="booking-btn booking-btn--back mt-3 w-full" id="bookingRestart" style="flex:1;width:100%">Nouvelle réservation</button>
+          </div>
+
+          <div class="booking-wizard__trust">
+            <span class="booking-trust-pill">💳 Paiement sur place</span>
+            <span class="booking-trust-pill">⭐ 4.9/5 avis clients</span>
+            <span class="booking-trust-pill">📍 Marrakech</span>
+          </div>
+        </div>
+        <p class="booking-section__copy">© <span id="bookingYear"></span> Lavage Marrakech — Tous droits réservés</p>
+      </div>
+    </section>
+
 
     <section class="border-y border-or/25 bg-[#0d0d0d] py-2.5">
       <div class="overflow-hidden whitespace-nowrap">
@@ -903,92 +1147,15 @@
     </section>
 
     <section id="contact" class="border-t border-white/10 bg-panel">
-      <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p class="text-[10px] uppercase tracking-[0.35em] text-or">Conciergerie</p>
-          <h2 class="mt-2 font-title text-3xl font-bold">Réservation</h2>
-          <p class="mt-4 text-sm text-white/65">Un créneau, une adresse — nous gérons le reste. Idéal si vous arrivez depuis une pub : un clic suffit.</p>
-          <a href="https://wa.me/212702430945?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20service%20premium%20%C3%A0%20domicile." class="cta-reserver mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full bg-or py-3.5 text-center text-xs font-bold uppercase tracking-[0.18em] text-black transition hover:bg-yellow-300 sm:w-auto sm:px-8" target="_blank" rel="noopener noreferrer">Réserver maintenant</a>
-          <div class="mt-8 space-y-3 text-sm">
-            <p><span class="text-white/50">Téléphone :</span> <a href="tel:+212702430945" class="font-semibold text-or">+212 7 02 43 09 45</a></p>
-            <p><span class="text-white/50">Localisation :</span> <a href="https://maps.app.goo.gl/Sco2HPLv1bY7BGn69" class="font-semibold text-or hover:underline" target="_blank" rel="noopener noreferrer">Lavage Luxe Marrakech sur Google Maps</a></p>
-          </div>
+      <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
+        <p class="text-[10px] uppercase tracking-[0.35em] text-or">Contact</p>
+        <h2 class="mt-2 font-title text-3xl font-bold">Besoin d&apos;aide ?</h2>
+        <p class="mt-4 text-sm text-white/65">Utilisez le formulaire en haut de page ou appelez-nous.</p>
+        <a href="#reservation" class="cta-reserver mt-6 inline-flex items-center justify-center rounded-full bg-or px-8 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-black transition hover:bg-yellow-300">Formulaire de réservation</a>
+        <div class="mt-8 space-y-3 text-sm">
+          <p><span class="text-white/50">Téléphone :</span> <a href="tel:+212702430945" class="font-semibold text-or">+212 7 02 43 09 45</a></p>
+          <p><span class="text-white/50">Localisation :</span> <a href="https://maps.app.goo.gl/Sco2HPLv1bY7BGn69" class="font-semibold text-or hover:underline" target="_blank" rel="noopener noreferrer">Lavage Luxe Marrakech sur Google Maps</a></p>
         </div>
-        <form id="reservationForm" class="mt-4 flex flex-col rounded-lg border border-white/10 bg-surface p-6">
-          <h3 class="font-title text-2xl font-bold text-white">Formulaire de Reservation</h3>
-          <p class="mt-2 text-xs text-white/50">Les informations sont envoyees sur WhatsApp (+212 7 02 43 09 45).</p>
-
-          <div class="mt-4">
-            <label class="text-sm font-semibold text-white/80" for="fullname">Nom complet</label>
-            <input id="fullname" placeholder="Entrez votre nom complet" class="mt-2 w-full rounded-md border border-white/15 bg-black/30 px-3 py-2 text-white placeholder:text-white/40 focus:border-or focus:outline-none" type="text">
-          </div>
-
-          <div class="mt-4">
-            <label class="text-sm font-semibold text-white/80" for="phone">Telephone</label>
-            <input id="phone" placeholder="Ex: +212 6 12 34 56 78" class="mt-2 w-full rounded-md border border-white/15 bg-black/30 px-3 py-2 text-white placeholder:text-white/40 focus:border-or focus:outline-none" type="tel">
-          </div>
-
-          <div class="mt-4">
-            <label class="text-sm font-semibold text-white/80" for="vehicle">Type de vehicule</label>
-            <select id="vehicle" class="mt-2 w-full rounded-md border border-white/15 bg-black/30 px-3 py-2 text-white focus:border-or focus:outline-none">
-              <option>Citadine</option>
-              <option>Berline</option>
-              <option>4x4 / SUV</option>
-              <option>SUV 6 places</option>
-              <option>Minibus</option>
-            </select>
-          </div>
-
-          <div class="mt-4 flex flex-col gap-4 sm:flex-row sm:gap-3">
-            <div class="min-w-0 flex-1">
-              <label class="text-sm font-semibold text-white/80" for="pack">Pack souhaité</label>
-              <select id="pack" required class="mt-2 w-full rounded-md border border-white/15 bg-black/30 px-3 py-2 text-white focus:border-or focus:outline-none">
-                <option value="" disabled selected>Choisir un pack</option>
-                <option value="Lavage Express">Lavage Express</option>
-                <option value="Lavage Pro">Lavage Pro</option>
-                <option value="Lavage Pro Plus">Lavage Pro Plus</option>
-              </select>
-            </div>
-            <div class="flex-1">
-              <label class="text-sm font-semibold text-white/80" for="time">Heure souhaitée</label>
-              <input id="time" class="mt-2 w-full rounded-md border border-white/15 bg-black/30 px-3 py-2 text-white focus:border-or focus:outline-none" type="time">
-            </div>
-          </div>
-
-          <div class="mt-4">
-            <label class="text-sm font-semibold text-white/80" for="message">Adresse et details</label>
-            <textarea id="message" rows="5" placeholder="Entrez votre adresse et toute information utile" class="mt-2 w-full rounded-md border border-white/15 bg-black/30 px-3 py-2 text-white placeholder:text-white/40 focus:border-or focus:outline-none"></textarea>
-          </div>
-
-          <div class="mt-4 rounded-md border border-white/10 bg-black/20 p-4">
-            <label class="text-sm font-semibold text-white/80">Position exacte (GPS)</label>
-            <p class="mt-1 text-xs text-white/45">Autorisez la localisation pour envoyer latitude / longitude et un lien carte avec votre reservation.</p>
-            <div class="mt-3 flex flex-wrap items-center gap-3">
-              <button
-                id="btnGetLocation"
-                type="button"
-                class="rounded-md border border-or/60 bg-or/10 px-4 py-2 text-sm font-semibold text-or transition hover:bg-or/20"
-              >
-                Utiliser ma position GPS
-              </button>
-              <span id="geoStatus" class="text-xs text-white/55" role="status"></span>
-            </div>
-            <input id="geoLat" type="hidden" name="geo_lat" value="">
-            <input id="geoLng" type="hidden" name="geo_lng" value="">
-            <input id="geoAcc" type="hidden" name="geo_accuracy" value="">
-            <textarea
-              id="geoDisplay"
-              readonly
-              rows="4"
-              class="mt-3 hidden w-full resize-none rounded-md border border-or/30 bg-black/40 px-3 py-2 text-xs text-white/80 focus:border-or focus:outline-none"
-              aria-label="Coordonnees GPS obtenues"
-            ></textarea>
-          </div>
-
-          <div class="mt-4 flex justify-end">
-            <button id="btnReservationWhatsApp" class="rounded-md bg-or px-5 py-2 text-sm font-bold uppercase tracking-wide text-black hover:bg-yellow-300" type="button">Envoyer sur WhatsApp</button>
-          </div>
-        </form>
       </div>
     </section>
 
@@ -1091,7 +1258,7 @@
   </main>
 
   <div class="mobile-cta-bar fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-background/95 px-3 pt-3 backdrop-blur-xl sm:hidden">
-    <a href="https://wa.me/212702430945?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20service%20premium%20%C3%A0%20domicile." class="mx-auto flex max-w-lg items-center justify-center rounded-full bg-or py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-black shadow-luxe transition hover:bg-yellow-300" target="_blank" rel="noopener noreferrer">Réserver maintenant</a>
+    <a href="#reservation" class="mx-auto flex max-w-lg items-center justify-center rounded-full bg-or py-3.5 text-center text-xs font-bold uppercase tracking-[0.2em] text-black shadow-luxe transition hover:bg-yellow-300">Réserver maintenant</a>
   </div>
 
   <footer class="border-t border-white/10 bg-[#0d0d0d]">
@@ -1127,125 +1294,8 @@
       if (window.ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
       if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
     }
-    const WHATSAPP_NUMBER = "212702430945";
-
     const header = document.querySelector("header");
     const getHeaderOffset = () => (header ? header.offsetHeight + 10 : 10);
-
-    const geoLat = document.getElementById("geoLat");
-    const geoLng = document.getElementById("geoLng");
-    const geoAcc = document.getElementById("geoAcc");
-    const geoDisplay = document.getElementById("geoDisplay");
-    const geoStatus = document.getElementById("geoStatus");
-    const btnGetLocation = document.getElementById("btnGetLocation");
-
-    if (btnGetLocation) {
-      if (!navigator.geolocation) {
-        btnGetLocation.disabled = true;
-        if (geoStatus) geoStatus.textContent = "Geolocalisation non disponible sur ce navigateur.";
-      } else {
-        btnGetLocation.addEventListener("click", () => {
-          if (geoStatus) {
-            geoStatus.textContent = "Recherche de la position...";
-            geoStatus.classList.remove("text-or", "text-red-400");
-          }
-          navigator.geolocation.getCurrentPosition(
-            (pos) => {
-              const lat = pos.coords.latitude;
-              const lng = pos.coords.longitude;
-              const acc = pos.coords.accuracy;
-              if (geoLat) geoLat.value = String(lat);
-              if (geoLng) geoLng.value = String(lng);
-              if (geoAcc) geoAcc.value = String(acc);
-              const mapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
-              if (geoDisplay) {
-                geoDisplay.value = [
-                  `Latitude: ${lat.toFixed(7)}`,
-                  `Longitude: ${lng.toFixed(7)}`,
-                  `Precision estimee: ${Math.round(acc)} m`,
-                  `Carte: ${mapsUrl}`
-                ].join("\n");
-                geoDisplay.classList.remove("hidden");
-              }
-              if (geoStatus) {
-                geoStatus.textContent = "Position enregistree.";
-                geoStatus.classList.add("text-or");
-              }
-            },
-            (err) => {
-              let msg = "Impossible d'obtenir la position.";
-              if (err.code === 1) msg = "Permission de localisation refusee.";
-              else if (err.code === 2) msg = "Position indisponible.";
-              else if (err.code === 3) msg = "Delai depasse, reessayez.";
-              if (geoStatus) {
-                geoStatus.textContent = msg;
-                geoStatus.classList.add("text-red-400");
-                geoStatus.classList.remove("text-or");
-              }
-            },
-            { enableHighAccuracy: true, timeout: 28000, maximumAge: 0 }
-          );
-        });
-      }
-    }
-
-    const btnReservationWhatsApp = document.getElementById("btnReservationWhatsApp");
-    if (btnReservationWhatsApp) {
-      btnReservationWhatsApp.addEventListener("click", () => {
-        const fullnameEl = document.getElementById("fullname");
-        const phoneEl = document.getElementById("phone");
-        const vehicleEl = document.getElementById("vehicle");
-        const packEl = document.getElementById("pack");
-        const timeEl = document.getElementById("time");
-        const messageEl = document.getElementById("message");
-        const fullname = (fullnameEl && fullnameEl.value.trim()) || "";
-        const phone = (phoneEl && phoneEl.value.trim()) || "";
-        const vehicle = (vehicleEl && vehicleEl.value) || "";
-        const pack = (packEl && packEl.value) || "";
-        const timeVal = (timeEl && timeEl.value) || "";
-        const details = (messageEl && messageEl.value.trim()) || "";
-        const lat = geoLat && geoLat.value.trim();
-        const lng = geoLng && geoLng.value.trim();
-        const acc = geoAcc && geoAcc.value.trim();
-        if (!fullname) {
-          alert("Merci d'indiquer votre nom complet.");
-          if (fullnameEl) fullnameEl.focus();
-          return;
-        }
-        if (!pack) {
-          alert("Merci de choisir un pack : Lavage Express, Lavage Pro ou Lavage Pro Plus.");
-          if (packEl) packEl.focus();
-          return;
-        }
-        let gpsBlock = "";
-        if (lat && lng) {
-          const mapLink = `https://www.google.com/maps?q=${encodeURIComponent(`${lat},${lng}`)}`;
-          gpsBlock = [
-            "",
-            "--- Position GPS (exacte) ---",
-            `Latitude: ${lat}`,
-            `Longitude: ${lng}`,
-            `Precision (~m): ${acc || "-"}`,
-            `Lien carte: ${mapLink}`
-          ].join("\n");
-        }
-        const body = [
-          "Bonjour, je souhaite reserver un lavage (Lavage Lux Marrakech).",
-          "",
-          `Nom: ${fullname}`,
-          `Telephone: ${phone || "-"}`,
-          `Vehicule: ${vehicle}`,
-          `Pack: ${pack}`,
-          `Heure souhaitee: ${timeVal || "-"}`,
-          "",
-          "Adresse et details:",
-          details || "-",
-          gpsBlock
-        ].join("\n");
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-      });
-    }
 
     document.addEventListener("click", (e) => {
       const clickTarget = e.target;
@@ -1679,8 +1729,8 @@
           });
         }
 
-        gsap.from("#contact .max-w-7xl > *", {
-          scrollTrigger: st("#contact .max-w-7xl", "top 88%"),
+        gsap.from("#reservation .booking-wizard__card", {
+          scrollTrigger: st("#reservation", "top 88%"),
           y: 40,
           opacity: 0,
           duration: 0.85,
@@ -1693,5 +1743,6 @@
       }
     }
   </script>
+  <script src="booking.js"></script>
 </body>
 </html>
