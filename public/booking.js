@@ -350,7 +350,7 @@
           : "";
 
     return [
-      "Bonjour, je souhaite réserver un lavage (Lavage Lux Marrakech).",
+      "Bonjour, je souhaite réserver un lavage (Washcar Kech).",
       "",
       `Formule: ${pack}`,
       `Véhicule: ${VEHICLE_LABELS[vehicle] || vehicle}`,

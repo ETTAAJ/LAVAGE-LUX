@@ -1,4 +1,4 @@
-# Lavage Lux Marrakech — https://lavageluxemarrakech.com
+# Washcar Kech — https://lavageluxemarrakech.com
 User-agent: *
 Allow: /
 
