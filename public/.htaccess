@@ -1,0 +1,13 @@
+# Hostinger / Apache — fichiers statiques (logo, favicon) avant la page unique
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ico|png|jpg|jpeg|webp|webmanifest)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
