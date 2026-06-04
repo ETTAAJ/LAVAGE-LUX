@@ -5,6 +5,8 @@
   "main": "tailwind.config.js",
   "scripts": {
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./public/site.css --minify",
+    "build:images": "node scripts/optimize-images.mjs",
+    "build": "npm run build:css && npm run build:images",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
