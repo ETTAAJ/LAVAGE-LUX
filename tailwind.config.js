@@ -13,8 +13,8 @@ module.exports = {
         or: "#fde400"
       },
       fontFamily: {
-        title: ["Space Grotesk", "ui-sans-serif", "system-ui"],
-        body: ["Manrope", "ui-sans-serif", "system-ui"]
+        title: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        body: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"]
       },
       boxShadow: {
         luxe: "0 12px 35px -15px rgba(253, 228, 0, 0.25)"
