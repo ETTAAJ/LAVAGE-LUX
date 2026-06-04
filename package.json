@@ -1,0 +1,26 @@
+{
+  "name": "lavage-a-domicile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./public/site.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ETTAAJ/LAVAGE-LUX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ETTAAJ/LAVAGE-LUX/issues"
+  },
+  "homepage": "https://github.com/ETTAAJ/LAVAGE-LUX#readme",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "tailwindcss": "^3.4.17"
+  }
+}

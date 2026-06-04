@@ -165,36 +165,30 @@
       ]
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            background: "#121212",
-            surface: "#1b1b1b",
-            panel: "#0f0f0f",
-            texte: "#e8e5e3",
-            mute: "#9b9b9b",
-            or: "#fde400"
-          },
-          fontFamily: {
-            title: ["Space Grotesk", "ui-sans-serif", "system-ui"],
-            body: ["Manrope", "ui-sans-serif", "system-ui"]
-          },
-          boxShadow: {
-            luxe: "0 12px 35px -15px rgba(253, 228, 0, 0.25)"
-          }
-        }
-      }
-    };
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preload" href="img/logo.jpg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="booking.css">
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Manrope:wght@400;600;700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Manrope:wght@400;600;700&display=swap">
+  </noscript>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=bolt,water_drop,auto_awesome,payments,check_circle,local_car_wash,directions_car,electric_car,group,airport_shuttle,swipe&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap">
+  </noscript>
   <style>
     .material-symbols-outlined {
       font-variation-settings: "FILL" 0, "wght" 450, "GRAD" 0, "opsz" 24;
@@ -594,18 +588,21 @@
       display: inline-block;
       will-change: transform, opacity;
     }
-    #hero video {
+    #hero .hero-lcp {
+      z-index: 0;
+    }
+    #hero .hero-video {
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
       pointer-events: none;
     }
-    #hero .hero-poster-fallback {
-      display: none;
+    #hero .hero-video.is-playing {
+      opacity: 1;
     }
     @media (prefers-reduced-motion: reduce) {
-      #hero video {
+      #hero .hero-video {
         display: none !important;
-      }
-      #hero .hero-poster-fallback {
-        display: block;
       }
     }
     .cta-reserver {
@@ -831,7 +828,6 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="booking.css">
 </head>
 <body class="bg-background text-texte font-body antialiased overflow-x-hidden">
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-background/90 backdrop-blur-xl">
@@ -844,7 +840,6 @@
           width="128"
           height="128"
           decoding="async"
-          fetchpriority="high"
         >
         <span class="site-brand__name font-title text-[clamp(0.6875rem,3.1vw,1.125rem)] font-extrabold uppercase tracking-tight sm:text-lg md:text-xl">
           <span class="shiny-text">Washcar</span> <span class="text-or">Kech</span>
@@ -856,30 +851,39 @@
   <main id="accueil">
     <section id="hero" class="relative flex min-h-[100svh] min-h-[600px] items-end justify-center overflow-hidden pt-20">
       <div class="absolute inset-0 z-0">
+        <img
+          src="img/logo.jpg"
+          alt=""
+          class="hero-lcp absolute inset-0 h-full w-full object-cover"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+          decoding="async"
+        >
         <video
-          class="h-full w-full object-cover"
-          autoplay
+          class="hero-video absolute inset-0 h-full w-full object-cover"
           muted
           loop
           playsinline
-          poster="img/Gemini_Generated_Image_dlbimmdlbimmdlbi.png"
-          aria-label="Nettoyage et détail automobile"
+          preload="none"
+          poster="img/logo.jpg"
+          aria-hidden="true"
+          data-hero-video
         >
-          <source src="https://videos.pexels.com/video-files/6873506/6873506-hd_1920_1080_25fps.mp4" type="video/mp4">
+          <source data-src="https://videos.pexels.com/video-files/6873506/6873506-hd_1920_1080_25fps.mp4" type="video/mp4">
         </video>
-        <img src="img/Gemini_Generated_Image_dlbimmdlbimmdlbi.png" alt="" class="hero-poster-fallback absolute inset-0 h-full w-full object-cover" width="1920" height="1080" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/35"></div>
+        <div class="absolute inset-0 z-[2] bg-gradient-to-t from-background via-background/80 to-background/35"></div>
         <div class="light-pillar-bg opacity-35"></div>
       </div>
       <div class="hero-content relative z-10 mx-auto w-full max-w-3xl px-4 pb-14 pt-6 text-center sm:px-6 lg:px-8">
         <img
-          src="img/logo-512.png"
+          src="img/logo-256.png"
           alt="Washcar Kech"
           class="hero-brand-logo mx-auto mb-5"
           width="224"
           height="224"
           decoding="async"
-          fetchpriority="high"
+          loading="eager"
         >
         <p class="mb-3 text-[10px] uppercase tracking-[0.5em] text-or/90 sm:text-[11px]">Washcar Kech · Guéliz · Hivernage · Palmeraie</p>
         <h1 class="font-title text-3xl font-extrabold leading-[1.15] text-white sm:text-5xl md:text-[3.25rem]"><span class="text-or">Washcar Kech</span> — Lavage voiture à domicile Marrakech</h1>
@@ -1617,13 +1621,44 @@
     </div>
   </footer>
 
-  <script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="booking.js"></script>
+  <script defer>
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
-    window.addEventListener("load", () => {
-      window.scrollTo(0, 0);
-    });
+
+    const initHeroVideo = () => {
+      const video = document.querySelector("[data-hero-video]");
+      if (!video) return;
+      const source = video.querySelector("source[data-src]");
+      if (!source) return;
+
+      const loadVideo = () => {
+        if (video.dataset.loaded === "1") return;
+        video.dataset.loaded = "1";
+        source.src = source.dataset.src;
+        video.load();
+        video.play().then(() => video.classList.add("is-playing")).catch(() => {});
+      };
+
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const conn = navigator.connection;
+      if (reduced || conn?.saveData) return;
+      if (conn?.effectiveType && /^(?:slow-2g|2g)$/.test(conn.effectiveType)) return;
+      if (!window.matchMedia("(min-width: 768px)").matches) return;
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadVideo, { timeout: 3000 });
+      } else {
+        window.setTimeout(loadVideo, 2000);
+      }
+    };
+
+    const runApp = () => {
+    initHeroVideo();
 
     if (window.gsap) {
       if (window.ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
@@ -2280,7 +2315,13 @@
         window.addEventListener("load", () => ScrollTrigger.refresh());
       }
     }
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", runApp);
+    } else {
+      runApp();
+    }
   </script>
-  <script src="booking.js"></script>
 </body>
 </html>
